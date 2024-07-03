@@ -25,7 +25,7 @@
 # Variables
 $verbosePreference = 'Continue'
 $vdot = 'https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool/archive/refs/heads/main.zip' 
-$apppackages = 'https://sharesync.serverdata.net/us/s/fPW8XwYL58W6l1ExrGES1Q001e87a8/AppxPackages.json'
+$apppackages = 'https://raw.githubusercontent.com/sp1nkick/AVD/main/vdot/ConfigFiles/AppxPackages.json'
 $vdot_location = 'c:\Optimize' 
 $vdot_location_zip = 'c:\Optimize\vdot.zip'
 $apppackages_location = 'C:\Optimize\AppxPackages.json'
