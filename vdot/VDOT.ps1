@@ -66,7 +66,7 @@ Invoke-WebRequest -Uri $apppackages -OutFile $apppackages_location
 Write-Verbose "Copy Apppackages.json to all configurationfiles folders" 
 Copy-Item $apppackages_location -Destination 'C:\Optimize\Virtual-Desktop-Optimization-Tool-main\1909\ConfigurationFiles\AppxPackages.json'
 Copy-Item $apppackages_location -Destination 'C:\Optimize\Virtual-Desktop-Optimization-Tool-main\2004\ConfigurationFiles\AppxPackages.json'
-C-Item $apppackages_location -Destination 'C:\Optimize\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFi\AppxPackages.json'
+Copy-Item $apppackages_location -Destination 'C:\Optimize\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json'
 
 # Unblock all files
 Write-Verbose "Unblock all files" 
