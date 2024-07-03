@@ -88,4 +88,4 @@ cd \
 Remove-Item $vdot_location -Recurse -Force
 
 # Restart AVD Golden image
-Restart-Computer -Force
+#Restart-Computer -Force
