@@ -8,19 +8,42 @@
 
 
 $ErrorActionPreference = 'Stop'
-$registryPath="HKLM:SOFTWARE\FSLOGIX\Apps"
+$RegistryPath="HKLM:SOFTWARE\FSLOGIX\Apps"
 
-#cleanupinvalidsessions
-Write-Output "Cleanup invalid sessions..."
-Set-ItemProperty -Path $registryPath Type Dword -Name VHDCompactDisk -Value 1
-Write-Output "Complete"
 
-#Roam Recyclebin
-Write-Output "Setting Roam Recyclebin Setting..."
-Set-ItemProperty -Path $registryPath -Name "RoamRecycleBin" Value=1
-Write-Output "Complete"
 
-#Compact VHD disk
-Write-Output "Setting Compact VHD Setting..."
-Set-ItemProperty -Path $registryPath -Name "VHDCompactDisk" Value=1
-Write-Output "Complete"
+Write-Output 'Setting Cleanup Invalid Sessions key...'
+# Set variables to indicate value and key to set
+$Name         = 'CleanupInvalidSessions'
+$Value        = '1'
+# Create the key if it does not exist
+If (-NOT (Test-Path $RegistryPath)) {
+  New-Item -Path $RegistryPath -Force | Out-Null
+}  
+# Now set the value
+New-ItemProperty -Path $RegistryPath -Name $Name -Value $Value -PropertyType DWORD -Force 
+Write-Output 'complete'
+
+Write-Output 'Setting Roaming Recyclebin key...'
+# Set variables to indicate value and key to set
+$Name         = 'RoamRecycleBin'
+$Value        = '1'
+# Create the key if it does not exist
+If (-NOT (Test-Path $RegistryPath)) {
+  New-Item -Path $RegistryPath -Force | Out-Null
+}  
+# Now set the value
+New-ItemProperty -Path $RegistryPath -Name $Name -Value $Value -PropertyType DWORD -Force 
+Write-output 'Complete'
+
+Write-Output 'Setting VHDCompactDisk'
+# Set variables to indicate value and key to set
+$Name         = 'VHDCompactDisk'
+$Value        = '1'
+# Create the key if it does not exist
+If (-NOT (Test-Path $RegistryPath)) {
+  New-Item -Path $RegistryPath -Force | Out-Null
+}  
+# Now set the value
+New-ItemProperty -Path $RegistryPath -Name $Name -Value $Value -PropertyType DWORD -Force 
+write-output 'complete'
